@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import About from './components/About';
 import TextForm from './TextForm';
 import Alert from './components/Alert';
+
 // Importing from react router
 import {
   BrowserRouter as Router,
@@ -15,7 +16,7 @@ import {
 
 
 function App() {
-  const [mode, setMode] = useState('light'); // wheteher dark mode is enabled or not;
+  const [mode, setMode] = useState('light');
   const [alert, setAlert] = useState(null);
   const [mode2, setMode2] = useState('light');
 
@@ -35,14 +36,12 @@ function App() {
       document.body.style.backgroundColor = 'grey';
       document.getElementById('switchCheckDefault2').style.color = 'white';
       showAlert("Dark mode is enabled", "success");
-      // document.title = 'TextUtils -DarkMode';
     }
     else if (mode === 'dark') {
       setMode('light');
       document.body.style.backgroundColor = 'white';
       document.getElementById('switchCheckDefault2').style.color = 'black';
       showAlert("Light mode is enabled", "success");
-      // document.title = 'TextUtils -Home';
     }
   }
   // Button 2:
@@ -65,11 +64,6 @@ function App() {
 
   return (
     <>
-      {/* <Navbar title="TextUtils" aboutText="About TextUtils"/> */}
-      {/* <Navbar/>  */}
-      {/* Default textutils are passed here */}
-      {/* mode2={mode2} toggleMode2={toggleMode2} */}
-
       <Router>
         <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} mode2={mode2} toggleMode2={toggleMode2} />
         <Alert alert={alert} />
@@ -79,7 +73,6 @@ function App() {
             <Route exact path="/" element={ <TextForm showAlert={showAlert} heading="Enter the Text to analyze below:" mode={mode} />}/>
             <Route exact path="/textutils" element={ <TextForm showAlert={showAlert} heading="Try TextUtils -Word Counter, Character Counter, Remove Extra Spaces" mode={mode} />} />
           </Routes>
-          {/* <TextForm showAlert={showAlert} heading="Enter the Text to analyze below:" mode={mode}/> */}
         </div>
       </Router>
     </>
